@@ -1,0 +1,44 @@
+flowchart-diagram
+
+// Flowchart for Investigating and Optimizing Database Performance
+
+title Database Performance Investigation
+
+// Grouping related tasks
+Batching Inserts [color: lightblue, icon: database] {
+  Investigate Batching Inserts [icon: search]
+  Measure Performance [icon: bar-chart]
+}
+
+Planogram Inserts [color: lightgreen, icon: layout] {
+  Investigate Planogram Inserts [icon: search]
+  Measure Planogram Performance [icon: bar-chart]
+}
+
+Trigger Optimization [color: lightcoral, icon: settings] {
+  Remove Trigger [icon: trash-2]
+  Measure Map Upload [icon: bar-chart]
+}
+
+Search Index [color: lightyellow, icon: search] {
+  Bypass Search Index [icon: skip-forward]
+  Measure Performance [icon: bar-chart]
+}
+
+DB Connection Pool [color: lightpurple, icon: server] {
+  Reduce Connection Pool Size [icon: minimize]
+  Measure Lock Contention [icon: bar-chart]
+}
+
+// Flowchart connections
+Investigate Batching Inserts > Measure Performance: Measure
+Investigate Planogram Inserts > Measure Planogram Performance: Measure
+Remove Trigger > Measure Map Upload: Measure
+Bypass Search Index > Measure Performance: Measure
+Reduce Connection Pool Size > Measure Lock Contention: Measure
+Investigate Batching Inserts < Start
+Investigate Planogram Inserts < Start
+Remove Trigger < Start
+Bypass Search Index < Start
+Reduce Connection Pool Size < Start
+
