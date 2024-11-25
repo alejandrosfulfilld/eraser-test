@@ -1,0 +1,29 @@
+entity-relationship-diagram
+
+title Backend System for Map Data Management
+
+// define tables
+maps [icon: map-pin, color: green]{
+  id string pk
+  mapName string
+  mapData jsonb
+  createdAt timestamp
+}
+
+files [icon: file, color: orange]{
+  id string pk
+  filePath string
+  metadata jsonb
+  uploadedAt timestamp
+}
+
+uploadHistory [icon: clock, color: purple]{
+  id string pk
+  fileId string fk
+  uploadTimestamp timestamp
+  status string
+}
+
+// define relationships
+files.id > uploadHistory.fileId
+
