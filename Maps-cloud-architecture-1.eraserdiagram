@@ -1,0 +1,25 @@
+cloud-architecture-diagram
+
+// Diagram elements
+Backend [icon: nodejs] {
+  NestJS [icon: nodejs, label: "NestJS"]
+  TypeORM [icon: database, label: "TypeORM"]
+  GraphQL Service [icon: graphql, label: "GraphQL"]
+
+  Data Storage [icon: database] {
+    PostgreSQL [icon: postgresql]
+  }
+}
+
+Google Cloud [icon: gcp-cloud] {
+  Cloud Storage [icon: gcp-storage]
+}
+
+// Connections
+NestJS > TypeORM: ORM for DB operations
+TypeORM <> PostgreSQL: data persistence
+NestJS > Cloud Storage: save/retrieve Excel files
+NestJS > GraphQL Service: expose maps query
+GraphQL Service > PostgreSQL: query map data
+NestJS > Cloud Storage: file history endpoint
+
