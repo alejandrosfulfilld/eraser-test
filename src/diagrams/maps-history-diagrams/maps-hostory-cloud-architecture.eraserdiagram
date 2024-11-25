@@ -1,0 +1,30 @@
+cloud-architecture-diagram
+
+// Diagram elements
+User [icon: user] {
+  Excel File Upload [icon: file]
+}
+
+Application Layer [icon: nodejs] {
+  NestJS [icon: nodejs, label: "NestJS"]
+  TypeORM [icon: database, label: "TypeORM"]
+}
+
+Storage Layer [icon: gcp-storage] {
+  Google Cloud Storage [icon: gcp-storage, label: "Cloud Storage"]
+  PostgreSQL [icon: postgresql]
+}
+
+Data Exposure Layer [icon: graphql] {
+  GraphQL Maps Endpoint [icon: graphql, label: "Maps"]
+  GraphQL Upload History Endpoint [icon: graphql, label: "Upload History"]
+}
+
+// Connections
+Excel File Upload > NestJS: process file
+NestJS > Google Cloud Storage: save file
+NestJS > PostgreSQL: save transformed data
+NestJS > PostgreSQL: save upload metadata
+PostgreSQL > GraphQL Maps Endpoint: expose map data
+PostgreSQL > GraphQL Upload History Endpoint: expose upload history
+
