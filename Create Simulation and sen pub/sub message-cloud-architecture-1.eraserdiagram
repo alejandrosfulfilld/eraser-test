@@ -1,0 +1,25 @@
+cloud-architecture-diagram
+
+// Diagram elements
+Backend Service [icon: nodejs] {
+  NestJS [icon: nodejs, label: "NestJS"]
+  TypeORM [icon: database, label: "TypeORM"]
+}
+
+Database [icon: postgresql] {
+  Runs Table [icon: table, label: "Runs Table"]
+}
+
+Google Cloud [icon: gcp-cloud] {
+  PubSub [icon: gcp-pubsub, label: "Pub/Sub"]
+  Cloud Function [icon: gcp-functions, label: "Cloud Function"]
+}
+
+GraphQL API [icon: graphql]
+
+// Connections
+Backend Service > Database: store new records
+Backend Service > PubSub: publish message on new record
+PubSub > Cloud Function: receive subscription
+Backend Service < GraphQL API: query and create items
+

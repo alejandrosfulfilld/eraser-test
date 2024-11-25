@@ -1,0 +1,26 @@
+entity-relationship-diagram
+
+// Title
+Backend System with Node.js, NestJS, TypeORM, and Google Cloud
+
+// Tables
+recommendations [icon: database, color: lightblue] {
+  id string pk
+  name string
+  runId string
+  createAt timestamp
+  updateAt timestamp
+  deployed boolean
+  adopted boolean
+}
+
+views [icon: eye, color: green] {
+  id string pk
+  recommendationId string fk
+  viewName string
+  fields string
+}
+
+// Relationships
+views.recommendationId > recommendations.id
+
